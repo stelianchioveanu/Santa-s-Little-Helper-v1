@@ -1,13 +1,26 @@
 package database;
 
+import annual.AnnualChange;
+import children.Child;
+import enums.Cities;
 import fileio.input.Input;
 import fileio.writer.Writer;
+import gift.Gift;
 import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
 
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.HashSet;
 
 public class Database {
+
+    private Integer numberOfYears;
+    private Double santaBudget;
+    private final HashMap<Integer, Child> childrenHashMap = new HashMap<>();
+    private final HashMap<String, Gift> santaGiftsHashMap = new HashMap<>();
+    private final HashSet<Cities> cities = new HashSet<>();
+    private final HashMap<Integer, AnnualChange> annualChangeHashMap = new HashMap<>();
+
 
     private static Database instance = null;
 
@@ -26,7 +39,9 @@ public class Database {
         return instance;
     }
 
-    private void populateRepository(final Input input) {}
+    private void populateRepository(final Input input) {
+
+    }
 
     private void clearRepository() {}
 

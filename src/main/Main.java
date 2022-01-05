@@ -59,10 +59,8 @@ public final class Main {
                               final String filePath2) throws IOException {
         InputLoader inputLoader = new InputLoader(filePath1);
         Input input = inputLoader.readData();
-
         Writer fileWriter = new Writer(filePath2);
         JSONArray arrayResult = new JSONArray();
-
         Database.getInstance().entryPoint(input, arrayResult, fileWriter);
         fileWriter.closeJSON(arrayResult);
     }
