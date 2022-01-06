@@ -3,7 +3,6 @@ package main;
 import checker.Checker;
 import common.Constants;
 import database.Database;
-import org.json.simple.JSONArray;
 import fileio.writer.Writer;
 import fileio.input.InputLoader;
 import fileio.input.Input;

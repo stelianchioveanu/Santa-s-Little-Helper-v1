@@ -13,9 +13,9 @@ public class Child{
     private final Cities city;
     private final Integer age;
     private final ArrayList<Category> giftsPreferences;
-    private final Double averageScore;
+    private Double averageScore;
     private final ArrayList<Double> niceScoreHistory;
-    private final Double assignedBudget;
+    private Double assignedBudget;
     private final ArrayList<Gift> receivedGifts;
 
     public Child(Integer id, String lastName,
@@ -74,5 +74,13 @@ public class Child{
 
     public ArrayList<Gift> getReceivedGifts() {
         return receivedGifts;
+    }
+
+    public void setAverageScore(Double averageScore) {
+        this.averageScore = averageScore;
+    }
+
+    public void setAssignedBudget(Double assignedBudget) {
+        this.assignedBudget = assignedBudget;
     }
 }
