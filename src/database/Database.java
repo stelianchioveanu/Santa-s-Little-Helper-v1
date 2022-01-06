@@ -5,6 +5,7 @@ import children.Child;
 import enums.Category;
 import enums.Cities;
 import fileio.input.ChildLoader;
+import fileio.input.ChildUpdateLoader;
 import fileio.input.Input;
 import fileio.writer.ChildrenWriter;
 import fileio.writer.Writer;
@@ -12,9 +13,7 @@ import fileio.writer.AnnualChildrenWriter;
 import gift.Gift;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
+import java.util.*;
 
 public class Database {
 
@@ -47,9 +46,7 @@ public class Database {
         this.santaBudget = input.getSantaBudget();
         for (ChildLoader child : input.getInitialData().getChildren()){
             if (child.getAge() <= 18) {
-                Child newChild = new Child(child.getId(), child.getLastName(),
-                        child.getFirstName(), child.getAge(), child.getCity(),
-                        child.getNiceScore(), child.getGiftsPreferences());
+                Child newChild = new Child(child);
                 this.childrenList.add(newChild);
                 this.cities.add(child.getCity());
             }
@@ -68,12 +65,30 @@ public class Database {
     }
 
     public void entryPoint(final Input input, final Writer fileWriter) throws IOException {
-        this.populateRepository(input);
-        this.firstRound();
         AnnualChildrenWriter writerOutput = new AnnualChildrenWriter();
         ChildrenWriter childrenWriter = new ChildrenWriter();
-        childrenWriter.getChildren().addAll(this.childrenList);
+
+        this.populateRepository(input);
+        this.firstRound();
+        for (Child child : this.childrenList){
+            childrenWriter.getChildren().add(new Child(child.getId(),
+                    child.getLastName(), child.getFirstName(), child.getCity(), child.getAge(),
+                    child.getGiftsPreferences(), child.getAverageScore(), child.getNiceScoreHistory(),
+                    child.getAssignedBudget(), child.getReceivedGifts()));
+        }
         writerOutput.getAnnualChildren().add(childrenWriter);
+        for (int i = 0; i < this.numberOfYears; i++){
+            this.nextRound(i);
+            childrenWriter = new ChildrenWriter();
+            for (Child child : this.childrenList){
+                childrenWriter.getChildren().add(new Child(child.getId(),
+                        child.getLastName(), child.getFirstName(), child.getCity(), child.getAge(),
+                        child.getGiftsPreferences(), child.getAverageScore(), child.getNiceScoreHistory(),
+                        child.getAssignedBudget(), child.getReceivedGifts()));
+            }
+            writerOutput.getAnnualChildren().add(childrenWriter);
+        }
+
         fileWriter.writeFile(writerOutput);
         this.clearRepository();
     }
@@ -86,24 +101,8 @@ public class Database {
         return santaBudget;
     }
 
-    public ArrayList<Child> getChildrenList() {
-        return childrenList;
-    }
-
-    public ArrayList<Gift> getSantaGiftsHashMap() {
-        return santaGiftsHashMap;
-    }
-
-    public HashSet<Cities> getCities() {
-        return cities;
-    }
-
-    public ArrayList<AnnualChange> getAnnualChangeHashMap() {
-        return annualChangeHashMap;
-    }
-
     public void sortGifts(){
-        this.santaGiftsHashMap.sort((o1, o2) -> Double.compare(o1.getPrice(), o2.getPrice()));
+        this.santaGiftsHashMap.sort(Comparator.comparingDouble(Gift::getPrice));
     }
 
     public void firstRound(){
@@ -120,14 +119,86 @@ public class Database {
         Double budgetUnit = this.santaBudget / sumScores;
         for (Child child : this.childrenList){
             child.setAssignedBudget(child.getAverageScore() * budgetUnit);
+            Double copyBudget = child.getAssignedBudget();
             for (Category category : child.getGiftsPreferences()){
                 for (Gift gift : this.santaGiftsHashMap){
-                    Double copyBudget = child.getAssignedBudget();
                     if (category.equals(gift.getCategory())){
                         if (copyBudget >= gift.getPrice()){
                         child.getReceivedGifts().add(gift);
                         copyBudget -= gift.getPrice();
                         break;}
+                    }
+                }
+            }
+        }
+    }
+
+    public void nextRound(Integer year){
+        for (Child child : this.childrenList){
+            child.setAge(child.getAge() + 1);
+            child.getReceivedGifts().clear();
+        }
+        for (int i = 0; i < this.childrenList.size(); i++){
+            if (this.childrenList.get(i).getAge() > 18){
+                this.childrenList.remove(i);
+                i--;
+            }
+        }
+        AnnualChange currentAnnualChange = this.annualChangeHashMap.get(year);
+        this.santaBudget = currentAnnualChange.getNewSantaBudget();
+        for (ChildLoader child : currentAnnualChange.getNewChildren()){
+            if (child.getAge() <= 18) {
+                Child newChild = new Child(child);
+                this.childrenList.add(newChild);
+                this.cities.add(child.getCity());
+            }
+        }
+        this.santaGiftsHashMap.addAll(currentAnnualChange.getNewGifts());
+        for (ChildUpdateLoader childUpdateLoader : currentAnnualChange.getChildrenUpdates()){
+            for (Child child : this.childrenList){
+                if (Objects.equals(child.getId(), childUpdateLoader.getId())) {
+                    if (childUpdateLoader.getNiceScore() != null){
+                        child.getNiceScoreHistory().add(childUpdateLoader.getNiceScore());
+                    }
+                    Collections.reverse(childUpdateLoader.getGiftsPreferences());
+                    for (Category category : childUpdateLoader.getGiftsPreferences()){
+                        child.getGiftsPreferences().remove(category);
+                        child.getGiftsPreferences().add(0, category);
+                    }
+
+                    break;
+                }
+            }
+        }
+
+        this.sortGifts();
+        Double sumScores = 0.0;
+        for (Child child : this.childrenList){
+            if (child.getAge() < 5) {
+                child.setAverageScore(10.0);
+            } else if (child.getAge() >= 5 && child.getAge() < 12){
+                Double niceScoreSum = child.getNiceScoreHistory().stream().reduce(0.0, Double::sum);
+                child.setAverageScore(niceScoreSum / child.getNiceScoreHistory().size());
+            } else {
+                Double niceScoreSum = 0.0;
+                for (int i = 0; i < child.getNiceScoreHistory().size(); i++){
+                    niceScoreSum += child.getNiceScoreHistory().get(i) * (i + 1);
+                }
+                child.setAverageScore(niceScoreSum / ((child.getNiceScoreHistory().size() * (child.getNiceScoreHistory().size() + 1))/2));
+            }
+            sumScores += child.getAverageScore();
+        }
+        Double budgetUnit = this.santaBudget / sumScores;
+        for (Child child : this.childrenList){
+            child.setAssignedBudget(child.getAverageScore() * budgetUnit);
+            Double copyBudget = child.getAssignedBudget();
+            for (Category category : child.getGiftsPreferences()){
+                for (Gift gift : this.santaGiftsHashMap){
+                    if (category.equals(gift.getCategory())){
+                        if (copyBudget >= gift.getPrice()){
+                            child.getReceivedGifts().add(gift);
+                            copyBudget -= gift.getPrice();
+                            break;}
                     }
                 }
             }

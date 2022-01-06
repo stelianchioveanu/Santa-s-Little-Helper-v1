@@ -5,7 +5,6 @@ import common.Constants;
 import database.Database;
 import fileio.writer.Writer;
 import fileio.input.InputLoader;
-import fileio.input.Input;
 
 import java.io.File;
 import java.io.IOException;
@@ -56,11 +55,8 @@ public final class Main {
 
     public static void action(final String filePath1,
                               final String filePath2) throws IOException {
-        InputLoader inputLoader = new InputLoader(filePath1);
-        Input input = inputLoader.readData();
 
-        Writer fileWriter = new Writer(filePath2);
-
-        Database.getInstance().entryPoint(input, fileWriter);
+        Database.getInstance().entryPoint(new InputLoader(filePath1).readData(),
+                new Writer(filePath2));
     }
 }

@@ -1,11 +1,13 @@
 package fileio.input;
 
+import enums.Category;
+
 import java.util.ArrayList;
 
 public class ChildUpdateLoader {
     private final Integer id;
     private final Double niceScore;
-    private final ArrayList<String> giftsPreferences;
+    private final ArrayList<Category> giftsPreferences;
 
     public ChildUpdateLoader() {
         this.id = 0;
@@ -14,7 +16,7 @@ public class ChildUpdateLoader {
     }
 
     public ChildUpdateLoader(Integer id, Double niceScore,
-                             ArrayList<String> giftsPreferences) {
+                             ArrayList<Category> giftsPreferences) {
         this.id = id;
         this.niceScore = niceScore;
         this.giftsPreferences = giftsPreferences;
@@ -28,7 +30,7 @@ public class ChildUpdateLoader {
         return niceScore;
     }
 
-    public ArrayList<String> getGiftsPreferences() {
+    public ArrayList<Category> getGiftsPreferences() {
         return giftsPreferences;
     }
 }
