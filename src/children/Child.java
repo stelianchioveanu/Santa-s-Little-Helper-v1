@@ -18,7 +18,10 @@ public class Child{
     private final Double assignedBudget;
     private final ArrayList<Gift> receivedGifts;
 
-    public Child(Integer id, String lastName, String firstName, Integer age, Cities city, Double niceScore, ArrayList<Category> giftsPreferences) {
+    public Child(Integer id, String lastName,
+                 String firstName, Integer age,
+                 Cities city, Double niceScore,
+                 ArrayList<Category> giftsPreferences) {
         this.id = id;
         this.lastName = lastName;
         this.firstName = firstName;

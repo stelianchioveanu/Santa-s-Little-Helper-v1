@@ -39,7 +39,7 @@ public final class Main {
         File outputDirectory = new File(Constants.RESULT);
         for (File file : Objects.requireNonNull(outputDirectory.listFiles())) {
             if (!file.delete()) {
-                System.out.println("");
+                System.out.println();
             }
         }
 
@@ -61,10 +61,7 @@ public final class Main {
         Input input = inputLoader.readData();
 
         Writer fileWriter = new Writer(filePath2);
-        JSONArray arrayResult = new JSONArray();
 
-        Database.getInstance().entryPoint(input, arrayResult, fileWriter);
-
-        fileWriter.closeJSON(arrayResult);
+        Database.getInstance().entryPoint(input, fileWriter);
     }
 }

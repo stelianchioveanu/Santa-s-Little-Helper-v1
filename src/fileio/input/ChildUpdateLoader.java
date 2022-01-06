@@ -1,20 +1,20 @@
-package children;
+package fileio.input;
 
 import java.util.ArrayList;
 
-public class ChildUpdate {
+public class ChildUpdateLoader {
     private final Integer id;
     private final Double niceScore;
     private final ArrayList<String> giftsPreferences;
 
-    public ChildUpdate() {
+    public ChildUpdateLoader() {
         this.id = 0;
         this.niceScore = 0.0;
         this.giftsPreferences = new ArrayList<>();
     }
 
-    public ChildUpdate(Integer id, Double niceScore,
-                       ArrayList<String> giftsPreferences) {
+    public ChildUpdateLoader(Integer id, Double niceScore,
+                             ArrayList<String> giftsPreferences) {
         this.id = id;
         this.niceScore = niceScore;
         this.giftsPreferences = giftsPreferences;

@@ -1,7 +1,6 @@
 package annual;
 
-import children.Child;
-import children.ChildUpdate;
+import fileio.input.ChildUpdateLoader;
 import fileio.input.ChildLoader;
 import gift.Gift;
 
@@ -11,7 +10,7 @@ public class AnnualChange {
     private final Double newSantaBudget;
     private final ArrayList<Gift> newGifts;
     private final ArrayList<ChildLoader> newChildren;
-    private final ArrayList<ChildUpdate> childrenUpdates;
+    private final ArrayList<ChildUpdateLoader> childrenUpdates;
 
     public AnnualChange() {
         this.newSantaBudget = 0.0;
@@ -22,7 +21,7 @@ public class AnnualChange {
 
     public AnnualChange(Double newSantaBudget, ArrayList<Gift> newGifts,
                         ArrayList<ChildLoader> newChildren,
-                        ArrayList<ChildUpdate> childrenUpdates) {
+                        ArrayList<ChildUpdateLoader> childrenUpdates) {
         this.newSantaBudget = newSantaBudget;
         this.newGifts = newGifts;
         this.newChildren = newChildren;
@@ -41,7 +40,7 @@ public class AnnualChange {
         return newChildren;
     }
 
-    public ArrayList<ChildUpdate> getChildrenUpdates() {
+    public ArrayList<ChildUpdateLoader> getChildrenUpdates() {
         return childrenUpdates;
     }
 }

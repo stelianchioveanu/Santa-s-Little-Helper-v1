@@ -3,8 +3,11 @@ package database;
 import annual.AnnualChange;
 import children.Child;
 import enums.Cities;
+import fileio.input.ChildLoader;
 import fileio.input.Input;
+import fileio.writer.ChildrenWriter;
 import fileio.writer.Writer;
+import fileio.writer.AnnualChildrenWriter;
 import gift.Gift;
 import org.json.simple.JSONArray;
 
@@ -12,16 +15,15 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.List;
 
 public class Database {
 
     private Integer numberOfYears;
     private Double santaBudget;
-    private final HashMap<Integer, Child> childrenHashMap = new HashMap<>();
+    private final ArrayList<Child> childrenList = new ArrayList<>();
     private final HashMap<String, Gift> santaGiftsHashMap = new HashMap<>();
     private final HashSet<Cities> cities = new HashSet<>();
-    private final List<AnnualChange> annualChangeHashMap = new ArrayList<>();
+    private final ArrayList<AnnualChange> annualChangeHashMap = new ArrayList<>();
 
     private static Database instance = null;
 
@@ -41,24 +43,61 @@ public class Database {
     }
 
     private void populateRepository(final Input input) {
-        /*this.numberOfYears = input.getNumberOfYears();
+        this.numberOfYears = input.getNumberOfYears();
         this.santaBudget = input.getSantaBudget();
-        for (Child child : input.getChildrenList()){
-            this.childrenHashMap.put(child.getId(), child);
+        for (ChildLoader child : input.getInitialData().getChildren()){
+            Child newChild = new Child(child.getId(), child.getLastName(),
+                    child.getFirstName(), child.getAge(), child.getCity(),
+                    child.getNiceScore(), child.getGiftsPreferences());
+            this.childrenList.add(newChild);
+            this.cities.add(child.getCity());
         }
-        for (Gift gift : input.getSantaGiftsList()){
+        for (Gift gift : input.getInitialData().getSantaGiftsList()){
             this.santaGiftsHashMap.put(gift.getProductName(), gift);
         }
-        this.cities.addAll(input.getCitiesList());
-        this.annualChangeHashMap.addAll(input.getAnnualChangeList());*/
+        this.annualChangeHashMap.addAll(input.getAnnualChanges());
     }
 
-    private void clearRepository() {}
+    private void clearRepository() {
+        this.numberOfYears = 0;
+        this.santaBudget = 0.0;
+        this.cities.clear();
+        this.childrenList.clear();
+        this.santaGiftsHashMap.clear();
+        this.annualChangeHashMap.clear();
+    }
 
-    public void entryPoint(final Input input, final JSONArray arrayResult,
-                           final Writer fileWriter) throws IOException {
+    public void entryPoint(final Input input, final Writer fileWriter) throws IOException {
         this.populateRepository(input);
-        // actions
+        AnnualChildrenWriter writerOutput = new AnnualChildrenWriter();
+        ChildrenWriter childrenWriter = new ChildrenWriter();
+        childrenWriter.getChildren().addAll(this.childrenList);
+        writerOutput.getAnnualChildren().add(childrenWriter);
+        fileWriter.writeFile(writerOutput);
         this.clearRepository();
+    }
+
+    public Integer getNumberOfYears() {
+        return numberOfYears;
+    }
+
+    public Double getSantaBudget() {
+        return santaBudget;
+    }
+
+    public ArrayList<Child> getChildrenList() {
+        return childrenList;
+    }
+
+    public HashMap<String, Gift> getSantaGiftsHashMap() {
+        return santaGiftsHashMap;
+    }
+
+    public HashSet<Cities> getCities() {
+        return cities;
+    }
+
+    public ArrayList<AnnualChange> getAnnualChangeHashMap() {
+        return annualChangeHashMap;
     }
 }

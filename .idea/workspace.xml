@@ -2,17 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d662010a-d6c5-4bb5-92a6-5b13c2206c94" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/fileio/input/ChildLoader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/fileio/input/InitialData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/fileio/writer/AnnualChildrenWriter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/fileio/writer/ChildrenWriter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/checkstyle.txt" beforeDir="false" afterPath="$PROJECT_DIR$/checkstyle.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/annual/AnnualChange.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/annual/AnnualChange.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/children/ChildUpdate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/children/ChildUpdate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/common/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/common/Constants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/children/Child.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/children/Child.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/children/ChildUpdate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fileio/input/ChildUpdateLoader.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/database/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/Database.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fileio/input/ChildLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fileio/input/ChildLoader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fileio/input/InitialData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fileio/input/InitialDataLoader.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/fileio/input/Input.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fileio/input/Input.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/fileio/input/InputLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fileio/input/InputLoader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gift/Gift.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gift/Gift.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fileio/writer/Writer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fileio/writer/Writer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,7 +33,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="branch1" />
+        <entry key="$PROJECT_DIR$" value="branch2" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -54,8 +57,8 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
-      <recent name="annual" />
       <recent name="fileio.input" />
+      <recent name="annual" />
     </key>
   </component>
   <component name="RunManager">
@@ -93,7 +96,7 @@
       <workItem from="1641382155131" duration="126000" />
       <workItem from="1641384408940" duration="11353000" />
       <workItem from="1641398438188" duration="84000" />
-      <workItem from="1641406535905" duration="9061000" />
+      <workItem from="1641406535905" duration="16435000" />
     </task>
     <task id="LOCAL-00001" summary="children + constants + database + input + inputloader + writer + gift + main">
       <created>1641393910824</created>
@@ -109,7 +112,14 @@
       <option name="project" value="LOCAL" />
       <updated>1641397408836</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="citire fisier json">
+      <created>1641466078931</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1641466078931</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -122,17 +132,7 @@
     <MESSAGE value="children + constants + database + input + inputloader + writer + gift +main" />
     <MESSAGE value="children + constants + database + input + inputloader + writer + gift + main" />
     <MESSAGE value="clasa child + database" />
-    <option name="LAST_COMMIT_MESSAGE" value="clasa child + database" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/Main.java</url>
-          <line>61</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="citire fisier json" />
+    <option name="LAST_COMMIT_MESSAGE" value="citire fisier json" />
   </component>
 </project>
