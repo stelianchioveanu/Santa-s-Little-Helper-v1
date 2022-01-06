@@ -9,8 +9,10 @@ import gift.Gift;
 import org.json.simple.JSONArray;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 
 public class Database {
 
@@ -19,8 +21,7 @@ public class Database {
     private final HashMap<Integer, Child> childrenHashMap = new HashMap<>();
     private final HashMap<String, Gift> santaGiftsHashMap = new HashMap<>();
     private final HashSet<Cities> cities = new HashSet<>();
-    private final HashMap<Integer, AnnualChange> annualChangeHashMap = new HashMap<>();
-
+    private final List<AnnualChange> annualChangeHashMap = new ArrayList<>();
 
     private static Database instance = null;
 
@@ -40,7 +41,16 @@ public class Database {
     }
 
     private void populateRepository(final Input input) {
-
+        /*this.numberOfYears = input.getNumberOfYears();
+        this.santaBudget = input.getSantaBudget();
+        for (Child child : input.getChildrenList()){
+            this.childrenHashMap.put(child.getId(), child);
+        }
+        for (Gift gift : input.getSantaGiftsList()){
+            this.santaGiftsHashMap.put(gift.getProductName(), gift);
+        }
+        this.cities.addAll(input.getCitiesList());
+        this.annualChangeHashMap.addAll(input.getAnnualChangeList());*/
     }
 
     private void clearRepository() {}
