@@ -1,11 +1,11 @@
-package fileio.input;
+package files.reader;
 
 import annual.AnnualChange;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Input {
+public final class Input {
     private final Integer numberOfYears;
     private final Double santaBudget;
     private final InitialDataLoader initialData;
@@ -16,15 +16,6 @@ public class Input {
         this.santaBudget = 0.0;
         this.initialData = new InitialDataLoader();
         this.annualChanges = new ArrayList<>();
-    }
-
-    public Input(Integer numberOfYears, Double santaBudget,
-                 InitialDataLoader initialData,
-                 List<AnnualChange> annualChanges) {
-        this.numberOfYears = numberOfYears;
-        this.santaBudget = santaBudget;
-        this.initialData = initialData;
-        this.annualChanges = annualChanges;
     }
 
     public Integer getNumberOfYears() {

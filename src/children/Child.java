@@ -2,12 +2,12 @@ package children;
 
 import enums.Category;
 import enums.Cities;
-import fileio.input.ChildLoader;
+import files.reader.ChildLoader;
 import gift.Gift;
 
 import java.util.ArrayList;
 
-public class Child{
+public final class Child {
     private final Integer id;
     private final String lastName;
     private final String firstName;
@@ -19,7 +19,7 @@ public class Child{
     private Double assignedBudget;
     private final ArrayList<Gift> receivedGifts;
 
-    public Child(ChildLoader childLoader) {
+    public Child(final ChildLoader childLoader) {
         this.id = childLoader.getId();
         this.lastName = childLoader.getLastName();
         this.firstName = childLoader.getFirstName();
@@ -34,11 +34,11 @@ public class Child{
         this.receivedGifts = new ArrayList<>();
     }
 
-    public Child(Integer id, String lastName,
-                 String firstName, Cities city,
-                 Integer age, ArrayList<Category> giftsPreferences,
-                 Double averageScore, ArrayList<Double> niceScoreHistory,
-                 Double assignedBudget, ArrayList<Gift> receivedGifts) {
+    public Child(final Integer id, final String lastName,
+                 final String firstName, final Cities city,
+                 final Integer age, final ArrayList<Category> giftsPreferences,
+                 final Double averageScore, final ArrayList<Double> niceScoreHistory,
+                 final Double assignedBudget, final ArrayList<Gift> receivedGifts) {
         this.id = id;
         this.lastName = lastName;
         this.firstName = firstName;
@@ -94,15 +94,15 @@ public class Child{
         return receivedGifts;
     }
 
-    public void setAverageScore(Double averageScore) {
+    public void setAverageScore(final Double averageScore) {
         this.averageScore = averageScore;
     }
 
-    public void setAssignedBudget(Double assignedBudget) {
+    public void setAssignedBudget(final Double assignedBudget) {
         this.assignedBudget = assignedBudget;
     }
 
-    public void setAge(Integer age) {
+    public void setAge(final Integer age) {
         this.age = age;
     }
 }

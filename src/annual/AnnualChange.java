@@ -1,12 +1,12 @@
 package annual;
 
-import fileio.input.ChildUpdateLoader;
-import fileio.input.ChildLoader;
+import files.reader.ChildUpdateLoader;
+import files.reader.ChildLoader;
 import gift.Gift;
 
 import java.util.ArrayList;
 
-public class AnnualChange {
+public final class AnnualChange {
     private final Double newSantaBudget;
     private final ArrayList<Gift> newGifts;
     private final ArrayList<ChildLoader> newChildren;
@@ -19,9 +19,9 @@ public class AnnualChange {
         this.childrenUpdates = new ArrayList<>();
     }
 
-    public AnnualChange(Double newSantaBudget, ArrayList<Gift> newGifts,
-                        ArrayList<ChildLoader> newChildren,
-                        ArrayList<ChildUpdateLoader> childrenUpdates) {
+    public AnnualChange(final Double newSantaBudget, final ArrayList<Gift> newGifts,
+                        final ArrayList<ChildLoader> newChildren,
+                        final ArrayList<ChildUpdateLoader> childrenUpdates) {
         this.newSantaBudget = newSantaBudget;
         this.newGifts = newGifts;
         this.newChildren = newChildren;

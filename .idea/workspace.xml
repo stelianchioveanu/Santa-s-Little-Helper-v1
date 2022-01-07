@@ -2,11 +2,25 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d662010a-d6c5-4bb5-92a6-5b13c2206c94" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/action/Action.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/action/Round.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/files/FilesManagement.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/checkstyle.txt" beforeDir="false" afterPath="$PROJECT_DIR$/checkstyle.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/annual/AnnualChange.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/annual/AnnualChange.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/children/Child.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/children/Child.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/common/Constants.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/database/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/Database.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fileio/input/ChildUpdateLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fileio/input/ChildUpdateLoader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fileio/input/ChildLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/files/reader/ChildLoader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fileio/input/ChildUpdateLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/files/reader/ChildUpdateLoader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fileio/input/InitialDataLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/files/reader/InitialDataLoader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fileio/input/Input.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/files/reader/Input.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fileio/input/InputLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/files/reader/Reader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fileio/writer/AnnualChildrenWriter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/files/writer/AnnualChildrenWriter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fileio/writer/ChildrenWriter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/files/writer/ChildrenWriter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fileio/writer/Writer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/files/writer/Writer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gift/Gift.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gift/Gift.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,7 +38,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="branch4" />
+        <entry key="$PROJECT_DIR$" value="branch5" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -44,10 +58,12 @@
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+    <property name="settings.editor.selected.configurable" value="inlay.hints.JAVA" />
   </component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="fileio" />
+      <recent name="files" />
       <recent name="fileio.input" />
       <recent name="annual" />
     </key>
@@ -87,7 +103,11 @@
       <workItem from="1641382155131" duration="126000" />
       <workItem from="1641384408940" duration="11353000" />
       <workItem from="1641398438188" duration="84000" />
-      <workItem from="1641406535905" duration="28067000" />
+      <workItem from="1641406535905" duration="28327000" />
+      <workItem from="1641487427919" duration="1357000" />
+      <workItem from="1641488846818" duration="46000" />
+      <workItem from="1641488919718" duration="303000" />
+      <workItem from="1641556755814" duration="12793000" />
     </task>
     <task id="LOCAL-00001" summary="children + constants + database + input + inputloader + writer + gift + main">
       <created>1641393910824</created>
@@ -124,7 +144,14 @@
       <option name="project" value="LOCAL" />
       <updated>1641478247614</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="60 puncte fara modularizare si design patterns">
+      <created>1641487064566</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1641487064566</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -140,22 +167,7 @@
     <MESSAGE value="citire fisier json" />
     <MESSAGE value="scriere fisier json" />
     <MESSAGE value="prima runda" />
-    <option name="LAST_COMMIT_MESSAGE" value="prima runda" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/Main.java</url>
-          <line>63</line>
-          <option name="timeStamp" value="13" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/database/Database.java</url>
-          <line>91</line>
-          <option name="timeStamp" value="14" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="60 puncte fara modularizare si design patterns" />
+    <option name="LAST_COMMIT_MESSAGE" value="60 puncte fara modularizare si design patterns" />
   </component>
 </project>

@@ -1,21 +1,21 @@
-package fileio.input;
+package files.reader;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.File;
 import java.io.IOException;
 
-public class InputLoader {
+public final class Reader {
     /**
      * The path to the input file
      */
     private final String inputPath;
 
-    public InputLoader(final String inputPath) {
+    public Reader(final String inputPath) {
         this.inputPath = inputPath;
     }
 
-    public Input readData(){
+    public Input readData() {
         Input input = new Input();
 
         try {

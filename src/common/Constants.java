@@ -17,4 +17,11 @@ public final class Constants {
         //constructor for checkstyle
     }
 
+    // My constants
+    public static final Integer INPUT_FILE_SUBSTRING = 4;
+    public static final Integer YOUNG_ADULT = 18;
+    public static final Integer KID = 5;
+    public static final Integer TEEN = 12;
+    public static final Double BABY_SCORE = 10.0;
+
 }

@@ -1,22 +1,17 @@
-package fileio.input;
+package files.reader;
 
 import gift.Gift;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class InitialDataLoader {
+public final class InitialDataLoader {
     private final List<ChildLoader> children;
     private final List<Gift> santaGiftsList;
 
     public InitialDataLoader() {
         this.children = new ArrayList<>();
         this.santaGiftsList = new ArrayList<>();
-    }
-
-    public InitialDataLoader(List<ChildLoader> children, List<Gift> santaGiftsList) {
-        this.children = children;
-        this.santaGiftsList = santaGiftsList;
     }
 
     public List<ChildLoader> getChildren() {
