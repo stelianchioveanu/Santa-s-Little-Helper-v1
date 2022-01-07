@@ -23,5 +23,8 @@ public final class Constants {
     public static final Integer KID = 5;
     public static final Integer TEEN = 12;
     public static final Double BABY_SCORE = 10.0;
+    public static final String BABY_STRING = "Baby";
+    public static final String KID_STRING = "Kid";
+    public static final String TEEN_STRING = "Teen";
 
 }

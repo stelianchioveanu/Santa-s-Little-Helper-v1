@@ -1,7 +1,7 @@
 package action;
 
 import annual.AnnualChange;
-import children.Child;
+import children.*;
 import common.Constants;
 import database.Database;
 import enums.Category;
@@ -19,10 +19,10 @@ public final class Action {
     public void addNewChildren(final Database database,
                                final List<ChildLoader> childLoaderArrayList) {
         for (ChildLoader child : childLoaderArrayList) {
+            GetChildFactory childFactory = new GetChildFactory();
 
-            if (child.getAge() <= Constants.YOUNG_ADULT) {
-                Child newChild = new Child(child);
-                database.getChildrenList().add(newChild);
+            if (childFactory.getChildByChildLoader(child.getAge(), child) != null) {
+                database.getChildrenList().add(childFactory.getChildByChildLoader(child.getAge(), child));
             }
         }
     }
@@ -54,10 +54,22 @@ public final class Action {
         for (int i = 0; i < database.getChildrenList().size(); i++) {
             database.getChildrenList().get(i).setAge(
                     database.getChildrenList().get(i).getAge() + 1);
-
             database.getChildrenList().get(i).getReceivedGifts().clear();
 
-            if (database.getChildrenList().get(i).getAge() > Constants.YOUNG_ADULT) {
+            String childType = database.getChildrenList().get(i).getChildType();
+            Integer age = database.getChildrenList().get(i).getAge();
+            Child newChild;
+            GetChildFactory getChildFactory = new GetChildFactory();
+
+            if (childType.equals(Constants.BABY_STRING) && age == Constants.KID) {
+                newChild = getChildFactory.getChildByChild(age, database.getChildrenList().get(i));
+                database.getChildrenList().remove(i);
+                database.getChildrenList().add(i, newChild);
+            } else if (childType.equals(Constants.KID_STRING) && age == Constants.TEEN) {
+                newChild = getChildFactory.getChildByChild(age, database.getChildrenList().get(i));
+                database.getChildrenList().remove(i);
+                database.getChildrenList().add(i, newChild);
+            } else if (childType.equals(Constants.TEEN_STRING) && age > Constants.YOUNG_ADULT) {
                 database.getChildrenList().remove(i);
                 i--;
             }
@@ -69,10 +81,10 @@ public final class Action {
 
         for (Child child : database.getChildrenList()) {
 
-            if (child.getAge() < Constants.KID) {
+            if (child.getChildType().equals(Constants.BABY_STRING)) {
                 child.setAverageScore(Constants.BABY_SCORE);
 
-            } else if (child.getAge() >= Constants.KID && child.getAge() < Constants.TEEN) {
+            } else if (child.getChildType().equals(Constants.KID_STRING)) {
                 Double niceScoreSum = child.getNiceScoreHistory().stream().
                         reduce(0.0, Double::sum);
                 child.setAverageScore(niceScoreSum / child.getNiceScoreHistory().size());

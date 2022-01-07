@@ -7,17 +7,17 @@ import gift.Gift;
 
 import java.util.ArrayList;
 
-public final class Child {
-    private final Integer id;
-    private final String lastName;
-    private final String firstName;
-    private final Cities city;
-    private Integer age;
-    private final ArrayList<Category> giftsPreferences;
-    private Double averageScore;
-    private final ArrayList<Double> niceScoreHistory;
-    private Double assignedBudget;
-    private final ArrayList<Gift> receivedGifts;
+public abstract class Child {
+    protected final Integer id;
+    protected final String lastName;
+    protected final String firstName;
+    protected final Cities city;
+    protected Integer age;
+    protected final ArrayList<Category> giftsPreferences;
+    protected Double averageScore;
+    protected final ArrayList<Double> niceScoreHistory;
+    protected Double assignedBudget;
+    protected final ArrayList<Gift> receivedGifts;
 
     public Child(final ChildLoader childLoader) {
         this.id = childLoader.getId();
@@ -34,27 +34,20 @@ public final class Child {
         this.receivedGifts = new ArrayList<>();
     }
 
-    public Child(final Integer id, final String lastName,
-                 final String firstName, final Cities city,
-                 final Integer age, final ArrayList<Category> giftsPreferences,
-                 final Double averageScore, final ArrayList<Double> niceScoreHistory,
-                 final Double assignedBudget, final ArrayList<Gift> receivedGifts) {
-        this.id = id;
-        this.lastName = lastName;
-        this.firstName = firstName;
-        this.city = city;
-        this.age = age;
-        this.giftsPreferences = new ArrayList<>();
-        this.giftsPreferences.addAll(giftsPreferences);
-        this.averageScore = averageScore;
-        this.niceScoreHistory = new ArrayList<>();
-        this.niceScoreHistory.addAll(niceScoreHistory);
-        this.assignedBudget = assignedBudget;
-        this.receivedGifts = new ArrayList<>();
-        this.receivedGifts.addAll(receivedGifts);
+    public Child(final Child child) {
+        this.id = child.id;
+        this.lastName = child.lastName;
+        this.firstName = child.firstName;
+        this.city = child.city;
+        this.age = child.age;
+        this.giftsPreferences = child.giftsPreferences;
+        this.averageScore = child.averageScore;
+        this.niceScoreHistory = child.niceScoreHistory;
+        this.assignedBudget = child.assignedBudget;
+        this.receivedGifts = child.receivedGifts;
     }
 
-    public ArrayList<Category> getGiftsPreferences() {
+    public ArrayList<Category> getGiftsPreferences(){
         return giftsPreferences;
     }
 
@@ -105,4 +98,6 @@ public final class Child {
     public void setAge(final Integer age) {
         this.age = age;
     }
+
+    public abstract String getChildType();
 }

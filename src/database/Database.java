@@ -5,6 +5,7 @@ import action.Round;
 import annual.AnnualChange;
 import children.Child;
 import files.reader.Input;
+import files.writer.ChildrenListWriter;
 import files.writer.ChildrenWriter;
 import files.writer.Writer;
 import files.writer.AnnualChildrenWriter;
@@ -65,10 +66,10 @@ public final class Database {
             Round round = new Round(i);
             round.currentRound(this);
 
-            ChildrenWriter childrenWriter = new ChildrenWriter();
+            ChildrenListWriter childrenWriter = new ChildrenListWriter();
 
             for (Child child : this.childrenList) {
-                childrenWriter.getChildren().add(new Child(child.getId(),
+                childrenWriter.getChildren().add(new ChildrenWriter(child.getId(),
                         child.getLastName(), child.getFirstName(), child.getCity(),
                         child.getAge(), child.getGiftsPreferences(), child.getAverageScore(),
                         child.getNiceScoreHistory(), child.getAssignedBudget(),
