@@ -19,7 +19,7 @@ public final class Main {
     }
 
     /**
-     * This method is used to call the checker which calculates the score
+     * This method is used to call the checker which calculates the score.
      *
      * @param args the arguments used to call the main method
      */
@@ -33,6 +33,12 @@ public final class Main {
         Checker.calculateScore();
     }
 
+    /**
+     * This method is used to start the program.
+     *
+     * @param filePath1 input file name
+     * @param filePath2 output file name
+     */
     public static void startProcess(final String filePath1,
                                     final String filePath2) {
         Database.getInstance().entryPoint(

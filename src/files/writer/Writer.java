@@ -12,6 +12,9 @@ public final class Writer {
         this.file = new File(path);
     }
 
+    /**
+     * This method write data in the output file.
+     */
     public void writeFile(final AnnualChildrenWriter writerOutput) {
         ObjectMapper om = new ObjectMapper();
         try {

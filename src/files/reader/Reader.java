@@ -7,7 +7,7 @@ import java.io.IOException;
 
 public final class Reader {
     /**
-     * The path to the input file
+     * The path to the input file.
      */
     private final String inputPath;
 
@@ -15,6 +15,9 @@ public final class Reader {
         this.inputPath = inputPath;
     }
 
+    /**
+     * This method read data from the input file.
+     */
     public Input readData() {
         Input input = new Input();
 

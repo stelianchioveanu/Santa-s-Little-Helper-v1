@@ -1,7 +1,8 @@
 package action;
 
 import annual.AnnualChange;
-import children.*;
+import children.GetChildFactory;
+import children.Child;
 import common.Constants;
 import database.Database;
 import enums.Category;
@@ -16,17 +17,30 @@ import java.util.Objects;
 
 public final class Action {
 
+    /**
+     * This method add new children in database list using the child factory.
+     *
+     * @param database database
+     * @param childLoaderArrayList input list with children
+     */
     public void addNewChildren(final Database database,
                                final List<ChildLoader> childLoaderArrayList) {
-        for (ChildLoader child : childLoaderArrayList) {
+        for (ChildLoader childLoader : childLoaderArrayList) {
             GetChildFactory childFactory = new GetChildFactory();
 
-            if (childFactory.getChildByChildLoader(child.getAge(), child) != null) {
-                database.getChildrenList().add(childFactory.getChildByChildLoader(child.getAge(), child));
+            if (childFactory.getChildByChildLoader(childLoader.getAge(), childLoader) != null) {
+                database.getChildrenList().add(
+                        childFactory.getChildByChildLoader(childLoader.getAge(), childLoader));
             }
         }
     }
 
+    /**
+     * This method is used to distribute gifts to children.
+     *
+     * @param database database
+     * @param budgetUnit  budget unit
+     */
     public void distributionGifts(final Database database, final Double budgetUnit) {
         for (Child child : database.getChildrenList()) {
 
@@ -50,6 +64,13 @@ public final class Action {
         }
     }
 
+    /**
+     * This method is used to increase the age of children.
+     * If a child becomes another type it will be deleted and a
+     * new one will be added to the same position using the child factory.
+     *
+     * @param database database
+     */
     public void increaseAge(final Database database) {
         for (int i = 0; i < database.getChildrenList().size(); i++) {
             database.getChildrenList().get(i).setAge(
@@ -61,11 +82,11 @@ public final class Action {
             Child newChild;
             GetChildFactory getChildFactory = new GetChildFactory();
 
-            if (childType.equals(Constants.BABY_STRING) && age == Constants.KID) {
+            if (childType.equals(Constants.BABY_STRING) && age.equals(Constants.KID)) {
                 newChild = getChildFactory.getChildByChild(age, database.getChildrenList().get(i));
                 database.getChildrenList().remove(i);
                 database.getChildrenList().add(i, newChild);
-            } else if (childType.equals(Constants.KID_STRING) && age == Constants.TEEN) {
+            } else if (childType.equals(Constants.KID_STRING) && age.equals(Constants.TEEN)) {
                 newChild = getChildFactory.getChildByChild(age, database.getChildrenList().get(i));
                 database.getChildrenList().remove(i);
                 database.getChildrenList().add(i, newChild);
@@ -76,6 +97,11 @@ public final class Action {
         }
     }
 
+    /**
+     * This method is used to calculate the budget unit and set the average score.
+     *
+     * @param database database
+     */
     public Double budgetUnit(final Database database) {
         Double sumScores = 0.0;
 
@@ -105,10 +131,21 @@ public final class Action {
         return database.getSantaBudget() / sumScores;
     }
 
+    /**
+     * This method is used to sort the gift list by price.
+     *
+     * @param database database
+     */
     public void sortGifts(final Database database) {
         database.getSantaGiftsList().sort(Comparator.comparingDouble(Gift::getPrice));
     }
 
+    /**
+     * This method is used to update children's data.
+     *
+     * @param database database
+     * @param currentAnnualChange annual changes
+     */
     public void updateChild(final Database database, final AnnualChange currentAnnualChange) {
         for (ChildUpdateLoader childUpdateLoader : currentAnnualChange.getChildrenUpdates()) {
 

@@ -13,12 +13,6 @@ public final class Gift {
         this.category = Category.BOARD_GAMES;
     }
 
-    public Gift(final String productName, final Double price, final Category category) {
-        this.productName = productName;
-        this.price = price;
-        this.category = category;
-    }
-
     public String getProductName() {
         return productName;
     }

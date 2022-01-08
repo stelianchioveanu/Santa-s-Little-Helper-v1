@@ -47,57 +47,99 @@ public abstract class Child {
         this.receivedGifts = child.receivedGifts;
     }
 
-    public ArrayList<Category> getGiftsPreferences(){
+    /**
+     * This method is used to get the gifts preferences.
+     */
+    public ArrayList<Category> getGiftsPreferences() {
         return giftsPreferences;
     }
 
+    /**
+     * This method is used to get the assigned budget.
+     */
     public Double getAssignedBudget() {
         return assignedBudget;
     }
 
+    /**
+     * This method is used to get the last name.
+     */
     public String getLastName() {
         return lastName;
     }
 
+    /**
+     * This method is used to get the first name.
+     */
     public String getFirstName() {
         return firstName;
     }
 
+    /**
+     * This method is used to get the age.
+     */
     public Integer getAge() {
         return age;
     }
 
+    /**
+     * This method is used to get the city.
+     */
     public Cities getCity() {
         return city;
     }
 
+    /**
+     * This method is used to get the id.
+     */
     public Integer getId() {
         return id;
     }
 
+    /**
+     * This method is used to get the nice score history.
+     */
     public ArrayList<Double> getNiceScoreHistory() {
         return niceScoreHistory;
     }
 
+    /**
+     * This method is used to get the average score.
+     */
     public Double getAverageScore() {
         return averageScore;
     }
 
+    /**
+     * This method is used to get the received gifts.
+     */
     public ArrayList<Gift> getReceivedGifts() {
         return receivedGifts;
     }
 
+    /**
+     * This method is used to set the average score.
+     */
     public void setAverageScore(final Double averageScore) {
         this.averageScore = averageScore;
     }
 
+    /**
+     * This method is used to set the assigned budget.
+     */
     public void setAssignedBudget(final Double assignedBudget) {
         this.assignedBudget = assignedBudget;
     }
 
+    /**
+     * This method is used to set the age.
+     */
     public void setAge(final Integer age) {
         this.age = age;
     }
 
+    /**
+     * This method is used to get the child's type.
+     */
     public abstract String getChildType();
 }

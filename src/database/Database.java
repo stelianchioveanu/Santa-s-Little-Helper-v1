@@ -57,6 +57,14 @@ public final class Database {
         this.annualChangeList.clear();
     }
 
+    /**
+     * This is the entry point of the implementation
+     * Firstly populate the repository, then add the results
+     * of the actions to the output file and finally release the repository.
+     *
+     * @param fileWriter  Write in output file
+     * @param input       Contain the inputs
+     */
     public void entryPoint(final Input input, final Writer fileWriter) {
         AnnualChildrenWriter writerOutput = new AnnualChildrenWriter();
 
@@ -103,11 +111,11 @@ public final class Database {
         return annualChangeList;
     }
 
-    public void setNumberOfYears(Integer numberOfYears) {
+    public void setNumberOfYears(final Integer numberOfYears) {
         this.numberOfYears = numberOfYears;
     }
 
-    public void setSantaBudget(Double santaBudget) {
+    public void setSantaBudget(final Double santaBudget) {
         this.santaBudget = santaBudget;
     }
 }

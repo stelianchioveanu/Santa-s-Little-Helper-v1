@@ -19,15 +19,6 @@ public final class AnnualChange {
         this.childrenUpdates = new ArrayList<>();
     }
 
-    public AnnualChange(final Double newSantaBudget, final ArrayList<Gift> newGifts,
-                        final ArrayList<ChildLoader> newChildren,
-                        final ArrayList<ChildUpdateLoader> childrenUpdates) {
-        this.newSantaBudget = newSantaBudget;
-        this.newGifts = newGifts;
-        this.newChildren = newChildren;
-        this.childrenUpdates = childrenUpdates;
-    }
-
     public Double getNewSantaBudget() {
         return newSantaBudget;
     }

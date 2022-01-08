@@ -10,6 +10,9 @@ import java.util.Objects;
 import static main.Main.startProcess;
 
 public final class FilesManagement {
+    /**
+     * This method create an output directory.
+     */
     public void createOutputDirectory() throws Exception {
         Path path = Paths.get(Constants.RESULT);
 
@@ -18,6 +21,9 @@ public final class FilesManagement {
         }
     }
 
+    /**
+     * This method clean the output directory.
+     */
     public void cleanOutputDirectory() {
         File outputDirectory = new File(Constants.RESULT);
 
@@ -28,6 +34,9 @@ public final class FilesManagement {
         }
     }
 
+    /**
+     * This method create an output file and write data in it.
+     */
     public void createOutputFiles() throws Exception {
         File directory = new File(Constants.INPUT_PATH);
 

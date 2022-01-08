@@ -1,7 +1,5 @@
 package files.writer;
 
-import children.Child;
-
 import java.util.ArrayList;
 
 public final class ChildrenListWriter {

@@ -10,6 +10,14 @@ public final class Round {
         this.roundNumber = roundNumber;
     }
 
+    /**
+     * This method is used to start a round.
+     * If it is the first round, the gifts will be distributed.
+     * If it is not the first round, the ages will increase, updates
+     * will be added and gifts will be distributed.
+     *
+     * @param database database
+     */
     public void currentRound(final Database database) {
         Action action = new Action();
         AnnualChange currentAnnualChange;
