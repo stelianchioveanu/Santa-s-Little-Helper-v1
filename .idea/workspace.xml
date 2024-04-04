@@ -1,14 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d662010a-d6c5-4bb5-92a6-5b13c2206c94" name="Changes" comment="" />
+    <list default="true" id="d662010a-d6c5-4bb5-92a6-5b13c2206c94" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README" beforeDir="false" afterPath="$PROJECT_DIR$/README" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="package-info" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="branch8" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="21v2UmCFgudLtO2NUqgyGG5QiA1" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -19,12 +35,21 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/checker/checkstyle-8.36.2-all.jar" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../tema/README" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+    <property name="settings.editor.selected.configurable" value="inlay.hints.JAVA" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="fileio" />
+      <recent name="files" />
+      <recent name="fileio.input" />
+      <recent name="annual" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -58,7 +83,81 @@
       <workItem from="1641381523789" duration="242000" />
       <workItem from="1641381781269" duration="128000" />
       <workItem from="1641381923114" duration="216000" />
+      <workItem from="1641382155131" duration="126000" />
+      <workItem from="1641384408940" duration="11353000" />
+      <workItem from="1641398438188" duration="84000" />
+      <workItem from="1641406535905" duration="28327000" />
+      <workItem from="1641487427919" duration="1357000" />
+      <workItem from="1641488846818" duration="46000" />
+      <workItem from="1641488919718" duration="303000" />
+      <workItem from="1641556755814" duration="12922000" />
+      <workItem from="1641570089747" duration="4797000" />
+      <workItem from="1641651107066" duration="12663000" />
     </task>
+    <task id="LOCAL-00001" summary="children + constants + database + input + inputloader + writer + gift + main">
+      <created>1641393910824</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1641393910824</updated>
+    </task>
+    <task id="LOCAL-00002" summary="clasa child + database">
+      <created>1641397408836</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1641397408836</updated>
+    </task>
+    <task id="LOCAL-00003" summary="citire fisier json">
+      <created>1641466078931</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1641466078931</updated>
+    </task>
+    <task id="LOCAL-00004" summary="scriere fisier json">
+      <created>1641473444458</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1641473444458</updated>
+    </task>
+    <task id="LOCAL-00005" summary="prima runda">
+      <created>1641478247614</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1641478247614</updated>
+    </task>
+    <task id="LOCAL-00006" summary="60 puncte fara modularizare si design patterns">
+      <created>1641487064566</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1641487064566</updated>
+    </task>
+    <task id="LOCAL-00007" summary="60 puncte, 1 design pattern">
+      <created>1641570051114</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1641570051114</updated>
+    </task>
+    <task id="LOCAL-00008" summary="60 puncte, 2 design pattern">
+      <created>1641574783189</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1641574783189</updated>
+    </task>
+    <task id="LOCAL-00009" summary="tot fara readme">
+      <created>1641656298531</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1641656298531</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -68,5 +167,16 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/.." />
     </ignored-roots>
+    <MESSAGE value="children + constants + database + input + inputloader + writer + gift +main" />
+    <MESSAGE value="children + constants + database + input + inputloader + writer + gift + main" />
+    <MESSAGE value="clasa child + database" />
+    <MESSAGE value="citire fisier json" />
+    <MESSAGE value="scriere fisier json" />
+    <MESSAGE value="prima runda" />
+    <MESSAGE value="60 puncte fara modularizare si design patterns" />
+    <MESSAGE value="60 puncte, 1 design pattern" />
+    <MESSAGE value="60 puncte, 2 design pattern" />
+    <MESSAGE value="tot fara readme" />
+    <option name="LAST_COMMIT_MESSAGE" value="tot fara readme" />
   </component>
 </project>
